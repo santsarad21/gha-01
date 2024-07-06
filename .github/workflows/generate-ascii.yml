@@ -13,6 +13,7 @@ jobs:
           with:
             name: dragon-text-file
             path: dragon.txt
+        - run: ls -ltra
     test_job_2:
         needs: build_job_1
         runs-on:  ubuntu-latest
@@ -21,6 +22,7 @@ jobs:
           uses: actions/download-artifact@v4
           with:
             name: dragon-text-file
+        - run: ls -ltra
 
         - name: Test file exists
           run: grep -i "dragon" dragon.txt
@@ -36,6 +38,7 @@ jobs:
           run: cat dragon.txt
         - name: Deploy
           run: echo Deploying ..
+        - run: ls -ltra
         
 
 
